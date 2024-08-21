@@ -8,10 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        commit: {
+          "high-density": "#39D353",
+          "medium-high-density": "#26A641",
+          "medium-density": "#016C31",
+          "low-density": "#0D4429",
+          "no-commits": "#161B22",
+        },
       },
     },
   },
