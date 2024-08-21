@@ -1,7 +1,5 @@
 import type { CommitActivity } from "@/app/types";
 
-const WEEK_DAYS = 7;
-
 type fetchCommitActivityDataParams = {
   repoOwner: string;
   repoName: string;
@@ -11,7 +9,7 @@ export const fetchCommitActivityData = async ({
   repoOwner,
   repoName,
 }: fetchCommitActivityDataParams): Promise<{
-  commitData: number[][];
+  commitActivity: CommitActivity[];
   maxCommits: number;
 }> => {
   const response = await fetch(
@@ -22,17 +20,9 @@ export const fetchCommitActivityData = async ({
     throw new Error(`Error fetching data: ${response.statusText}`);
   }
 
-  const data: CommitActivity[] = await response.json();
+  const commitActivity: CommitActivity[] = await response.json();
 
-  const dailyCommits: number[][] = Array.from({ length: WEEK_DAYS }, () => []);
+  const maxCommits = Math.max(...commitActivity.flatMap((week) => week.days));
 
-  data.forEach((week) => {
-    week.days.forEach((commits, index) => {
-      dailyCommits[index].push(commits);
-    });
-  });
-
-  const maxCommits = Math.max(...dailyCommits.flat());
-
-  return { commitData: dailyCommits, maxCommits };
+  return { commitActivity, maxCommits };
 };
