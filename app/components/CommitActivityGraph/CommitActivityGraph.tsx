@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { fetchCommitActivityData } from "@/app/lib/fetchCommitActivityData";
-import { getCommitDensityClass } from "@/app/utils/getCommitDensityClass";
 import CommitActivityCell from "./CommitActivityCell";
 
 const REPO_OWNER = "facebook";
