@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Commit Activity Graph
 
-## Getting Started
+Welcome! 👋 This project is a web application to visualize GitHub repository commit activity in a calendar-like format. Each day’s contributions are represented by a colored cell, with tooltips displaying the exact number of contributions and date on hover.
 
-First, run the development server:
+## View Live 💻
 
-```bash
+You can view the live version here: [Live Demo](https://commit-activity-graph-chi.vercel.app/) 🔗
+
+## How to Clone and Run the Project 👨🏽‍💻
+
+### Prerequisites
+
+Before you begin, ensure you have the following tools installed on your computer:
+
+- **Node.js** (v14 or later)
+- **npm** or **yarn** (latest version)
+
+### Installation & Run Instructions
+
+1.  **Clone the Repository**:
+
+```console
+git clone https://github.com/Nicocappabianca/commit-activity-graph.git
+cd commit-activity-graph
+```
+
+2. **Install Dependencies**:
+
+```console
+npm install
+# or
+yarn install
+```
+
+3. **Run the Application in Development Mode**:
+
+```console
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Open the Application**:
+   Open your browser and navigate to `http://localhost:3000` to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack 🛠️
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The tools behind the project
 
-## Learn More
+![Tech Stack](https://skillicons.dev/icons?i=typescript,react,next,tailwind)
 
-To learn more about Next.js, take a look at the following resources:
+- **TypeScript**: Chosen for its static typing, which helps catch errors early and improves code maintainability.
+- **React**: Selected for its component-based architecture, making the UI modular and reusable.
+- **Tailwind CSS**: Used for its utility-first approach, allowing for rapid and responsive design development.
+- **Next.js**: Selected for its performance benefits and server-side rendering. ⚠️ While it's more than what this project requires, I included since it's part of the Concourse stack.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
+Thank you for taking the time to explore this project. If you have any questions or feedback, feel free to reach out.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+👥 LinkedIn: [/in/nicolascappabianca](https://www.linkedin.com/in/nicolascappabianca/)
+📧 Email: nicolas.cappabianca@gmail.com
