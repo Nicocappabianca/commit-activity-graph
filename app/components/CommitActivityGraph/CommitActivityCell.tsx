@@ -16,7 +16,7 @@ const CommitActivityCell: FC<CommitActivityCellProps> = ({ weekCommits, dayIndex
   return (
     <Tooltip
       tooltip={commitsQty > 0 ? `${commitsQty} contributions.` : "No contributions."}
-      trigger={<div className={`with-tooltip w-5 h-5 rounded-sm cursor-pointer ${bgColor}`} />}
+      trigger={<div className={`w-5 h-5 rounded-sm cursor-pointer ${bgColor}`} />}
     />
   );
 };
