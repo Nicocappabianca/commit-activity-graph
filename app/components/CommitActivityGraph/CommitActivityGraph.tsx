@@ -16,28 +16,30 @@ const CommitActivityGraph: FC = async () => {
   });
 
   return (
-    <table className="table-auto border-collapse">
-      <tbody>
-        {DAYS_OF_WEEK.map((day, dayIndex) => (
-          <tr key={dayIndex}>
-            <td className="text-left text-xs pr-1 text-gray-300">
-              {canDisplayDay(dayIndex) && day}
-            </td>
-            {commitActivity.map((week, weekIndex) => {
-              return (
-                <td key={weekIndex} className="p-[2.5px]">
-                  <CommitActivityCell
-                    weekCommits={week.days}
-                    dayIndex={dayIndex}
-                    maxCommits={maxCommits}
-                  />
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="max-w-full overflow-auto">
+      <table className="table-auto border-collapse">
+        <tbody>
+          {DAYS_OF_WEEK.map((day, dayIndex) => (
+            <tr key={dayIndex}>
+              <td className="text-left text-xs pr-1 text-gray-300">
+                {canDisplayDay(dayIndex) && day}
+              </td>
+              {commitActivity.map((weekCommits) => {
+                return (
+                  <td key={weekCommits.week} className="p-[2.5px]">
+                    <CommitActivityCell
+                      weekCommits={weekCommits}
+                      dayIndex={dayIndex}
+                      maxCommits={maxCommits}
+                    />
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
