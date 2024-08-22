@@ -3,3 +3,8 @@ export type CommitActivity = {
   week: number;
   days: number[];
 };
+
+export type MonthHeader = {
+  label: string;
+  colSpan: number;
+};

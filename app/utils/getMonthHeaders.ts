@@ -1,9 +1,4 @@
-import { CommitActivity } from "@/app/types";
-
-type MonthHeader = {
-  label: string;
-  colSpan: number;
-};
+import { CommitActivity, MonthHeader } from "@/app/types";
 
 const getMonthHeaders = (commitActivity: CommitActivity[]): MonthHeader[] => {
   const monthHeaders: MonthHeader[] = [];

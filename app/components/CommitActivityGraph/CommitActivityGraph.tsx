@@ -2,6 +2,7 @@ import { FC } from "react";
 import { getHigherContributionsCount, getMonthHeaders } from "@/app/utils";
 import { fetchCommitActivityData } from "@/app/lib/fetchCommitActivityData";
 import CommitActivityCell from "./CommitActivityCell";
+import CommitActivityGraphHeader from "./CommitActivityGraphHeader";
 
 const REPO_OWNER = "facebook";
 const REPO_NAME = "react";
@@ -22,20 +23,7 @@ const CommitActivityGraph: FC = async () => {
   return (
     <div className="max-w-full overflow-y-hidden overflow-x-auto">
       <table className="table-auto border-separate w-max overflow-hidden relative pt-6">
-        <thead>
-          <tr>
-            <th></th>
-            {monthHeaders.map((month, index) => (
-              <th
-                key={index}
-                colSpan={month.colSpan}
-                className="text-left text-xs font-normal text-gray-300 relative"
-              >
-                <span className="absolute -top-3">{month.label}</span>
-              </th>
-            ))}
-          </tr>
-        </thead>
+        <CommitActivityGraphHeader monthHeaders={monthHeaders} />
         <tbody>
           {DAYS_OF_WEEK.map((day, dayIndex) => (
             <tr key={dayIndex}>
