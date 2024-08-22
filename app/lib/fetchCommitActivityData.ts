@@ -8,10 +8,7 @@ type fetchCommitActivityDataParams = {
 export const fetchCommitActivityData = async ({
   repoOwner,
   repoName,
-}: fetchCommitActivityDataParams): Promise<{
-  commitActivity: CommitActivity[];
-  maxCommits: number;
-}> => {
+}: fetchCommitActivityDataParams): Promise<CommitActivity[]> => {
   const response = await fetch(
     `https://api.github.com/repos/${repoOwner}/${repoName}/stats/commit_activity`
   );
@@ -22,7 +19,5 @@ export const fetchCommitActivityData = async ({
 
   const commitActivity: CommitActivity[] = await response.json();
 
-  const maxCommits = Math.max(...commitActivity.flatMap((week) => week.days));
-
-  return { commitActivity, maxCommits };
+  return commitActivity;
 };
