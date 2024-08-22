@@ -1,11 +1,14 @@
 import { FC } from "react";
-import { MonthHeader } from "@/app/types";
+import { CommitActivity } from "@/app/types";
+import { getMonthHeaders } from "@/app/utils";
 
 type CommitActivityGraphHeaderProps = {
-  monthHeaders: MonthHeader[];
+  commitActivity: CommitActivity[];
 };
 
-const CommitActivityGraphHeader: FC<CommitActivityGraphHeaderProps> = ({ monthHeaders }) => {
+const CommitActivityGraphHeader: FC<CommitActivityGraphHeaderProps> = ({ commitActivity }) => {
+  const monthHeaders = getMonthHeaders(commitActivity);
+
   return (
     <thead>
       <tr>
@@ -14,7 +17,7 @@ const CommitActivityGraphHeader: FC<CommitActivityGraphHeaderProps> = ({ monthHe
           <th
             key={index}
             colSpan={month.colSpan}
-            className="text-left text-xs font-normal text-gray-300 relative"
+            className="text-left text-xs font-normal text-gray-200 relative"
           >
             <span className="absolute -top-3">{month.label}</span>
           </th>

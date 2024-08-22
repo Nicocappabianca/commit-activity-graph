@@ -1,16 +1,19 @@
 import type { CommitActivity } from "@/app/types";
 
 type fetchCommitActivityDataParams = {
-  repoOwner: string;
-  repoName: string;
+  repositoryOwner: string;
+  repositoryName: string;
 };
 
+const ONE_HOUR = 3600;
+
 export const fetchCommitActivityData = async ({
-  repoOwner,
-  repoName,
+  repositoryOwner,
+  repositoryName,
 }: fetchCommitActivityDataParams): Promise<CommitActivity[]> => {
   const response = await fetch(
-    `https://api.github.com/repos/${repoOwner}/${repoName}/stats/commit_activity`
+    `https://api.github.com/repos/${repositoryOwner}/${repositoryName}/stats/commit_activity`,
+    { next: { revalidate: ONE_HOUR } }
   );
 
   if (!response.ok) {
