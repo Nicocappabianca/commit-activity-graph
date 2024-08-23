@@ -1,13 +1,15 @@
-import { UserRepositories } from "@/app/types";
 import { FC } from "react";
+import { fetchRepositories } from "@/app/lib/fetchRepositories";
 import RepositoryItem from "./RepositoryItem";
 
 type RepositoriesListProps = {
-  repositories: UserRepositories;
+  username: string;
 };
 
-const RepositoriesList: FC<RepositoriesListProps> = ({ repositories }) => {
-  if (!repositories.items.length) {
+const RepositoriesList: FC<RepositoriesListProps> = async ({ username }) => {
+  const repositories = await fetchRepositories(username);
+
+  if (!repositories?.items?.length) {
     return (
       <h1 className="text-center text-red-200 text-xl">
         Sorry, there are no repositories here. 😕
