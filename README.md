@@ -1,10 +1,12 @@
 # Commit Activity Graph
 
 Welcome! 👋 This project is a web application to visualize GitHub repository commit activity in a calendar-like format. Each day’s contributions are represented by a colored cell, with tooltips displaying the exact number of contributions and date on hover.
+You can search for any GitHub repository by username.
 
 ## View Live 💻
 
-You can view the live version here: [Live Demo](https://commit-activity-graph-chi.vercel.app/) 🔗
+- You can view the live version here: [Full Live Demo](https://commit-activity-graph-chi.vercel.app/) 🔗
+- 🚀 Also you can directly view the commit activity graph of `/facebook/react` here: [Live Graph Demo](https://commit-activity-graph-chi.vercel.app/facebook/react) 🔗
 
 ## How to Clone and Run the Project 👨🏽‍💻
 
