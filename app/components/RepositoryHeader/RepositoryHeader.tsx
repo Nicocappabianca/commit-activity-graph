@@ -15,7 +15,7 @@ const RepositoryHeader: FC<RepositoryHeaderProps> = async ({ repositoryName, rep
   });
 
   return (
-    <header className="flex space-x-3">
+    <header className="flex space-x-3 items-center">
       <Image
         src={repositoryData.owner.avatar_url}
         width={50}
@@ -24,8 +24,8 @@ const RepositoryHeader: FC<RepositoryHeaderProps> = async ({ repositoryName, rep
         className="rounded-full shadow shadow-gray-400/50"
       />
       <div>
-        <h1 className="text-lg font-bold text-gray-200 ">Commit Activity Graph</h1>
-        <p className="text-gray-400">
+        <h1 className="text-md md:text-lg font-bold text-gray-200 ">Commit Activity Graph</h1>
+        <p className="text-gray-400 text-sm md:text-base">
           from
           <a
             href={repositoryData.html_url}
