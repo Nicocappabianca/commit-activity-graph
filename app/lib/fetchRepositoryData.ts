@@ -17,7 +17,7 @@ export const fetchRepositoryData = async ({
   );
 
   if (!response.ok) {
-    throw new Error(`Error fetching data: ${response.statusText}`);
+    throw new Error(`Error fetching repository data: ${response.statusText}`);
   }
 
   const repositoryData: RepositoryData = await response.json();

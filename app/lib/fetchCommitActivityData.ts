@@ -5,7 +5,8 @@ type fetchCommitActivityDataParams = {
   repositoryName: string;
 };
 
-const ONE_HOUR = 3600;
+const ONE_HOUR = 3600; //expressed in seconds
+const FIVE_SECONDS = 10000; //expressed in milliseconds
 
 export const fetchCommitActivityData = async ({
   repositoryOwner,
@@ -16,8 +17,14 @@ export const fetchCommitActivityData = async ({
     { next: { revalidate: ONE_HOUR } }
   );
 
+  if (response.status === 202) {
+    console.warn("Stats are being generated, retrying...");
+    await new Promise((resolve) => setTimeout(resolve, FIVE_SECONDS));
+    return fetchCommitActivityData({ repositoryOwner, repositoryName });
+  }
+
   if (!response.ok) {
-    throw new Error(`Error fetching data: ${response.statusText}`);
+    throw new Error(`Error fetching commit activity: ${response.statusText}`);
   }
 
   const commitActivity: CommitActivity[] = await response.json();

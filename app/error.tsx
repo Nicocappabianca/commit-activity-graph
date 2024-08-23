@@ -1,27 +1,25 @@
 "use client";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/app/components";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function Error({ error }: { error: Error & { digest?: string } }) {
+  const router = useRouter();
+
+  const navigateHome = () => {
+    router.push("/");
+  };
+
   useEffect(() => {
     console.error(error.message);
   }, [error]);
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center">
       <h2 className="text-4xl font-bold text-red-400">Oops! 😰</h2>
-      <h3 className="text-lg text-gray-400 pt-2">Something went wrong.</h3>
-      <button
-        className="mt-6 border border-gray-200 rounded py-2 px-3 text-sm font-bold text-gray-200 hover:bg-gray-800 focus:scale-95 transition-transform"
-        onClick={() => reset()}
-      >
-        Try again
-      </button>
+      <h3 className="text-lg text-gray-200 pt-2 font-semibold">Something went wrong.</h3>
+      <p className="pt-6 pb-4 text-gray-400">{error.message}</p>
+      <Button onClick={navigateHome}>Go back Home 🏠</Button>
     </div>
   );
 }

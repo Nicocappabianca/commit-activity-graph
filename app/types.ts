@@ -20,3 +20,9 @@ export type MonthHeader = {
   label: string;
   colSpan: number;
 };
+
+export type UserRepositories = {
+  total_count: number;
+  incomplete_results: boolean;
+  items: RepositoryData[];
+};

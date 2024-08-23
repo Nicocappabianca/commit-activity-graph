@@ -1,19 +1,18 @@
-import { CommitActivityGraph, RepositoryHeader } from "./components";
 import type { Metadata } from "next";
-
-const REPO_OWNER = "facebook";
-const REPO_NAME = "react";
+import { RepositorySearchForm } from "@/app/components";
 
 export const metadata: Metadata = {
-  title: "Commit Activity",
-  description: `Commit activity graph from ${REPO_OWNER}/${REPO_NAME} GitHub repository.`,
+  title: "Repository Search",
 };
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-4 space-y-12">
-      <RepositoryHeader repositoryName={REPO_NAME} repositoryOwner={REPO_OWNER} />
-      <CommitActivityGraph repositoryName={REPO_NAME} repositoryOwner={REPO_OWNER} />
+    <main className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-xl md:text-4xl font-bold text-gray-200 pb-3">Repository Search</h1>
+      <p className="text-gray-400 text-lg md:text-xl pb-8">{`Let's find some repos!`}</p>
+      <RepositorySearchForm />
     </main>
   );
-}
+};
+
+export default Home;
