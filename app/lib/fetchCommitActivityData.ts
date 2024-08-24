@@ -1,4 +1,5 @@
 import type { CommitActivity } from "@/app/types";
+import { HTTPStatusCode } from "@/app/constants";
 
 type fetchCommitActivityDataParams = {
   repositoryOwner: string;
@@ -15,7 +16,7 @@ export const fetchCommitActivityData = async ({
     `https://api.github.com/repos/${repositoryOwner}/${repositoryName}/stats/commit_activity`
   );
 
-  if (response.status === 202) {
+  if (response.status === HTTPStatusCode.ACCEPTED) {
     console.warn("Stats are being generated, retrying...");
     await new Promise((resolve) => setTimeout(resolve, FIVE_SECONDS));
     return fetchCommitActivityData({ repositoryOwner, repositoryName });

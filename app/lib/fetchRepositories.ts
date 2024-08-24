@@ -1,11 +1,12 @@
 import { UserRepositories } from "@/app/types";
+import { HTTPStatusCode } from "@/app/constants";
 
 export const fetchRepositories = async (repositoryOwner: string): Promise<UserRepositories> => {
   const response = await fetch(
     `https://api.github.com/search/repositories?q=user:${repositoryOwner}`
   );
 
-  if (response.status === 422) {
+  if (response.status === HTTPStatusCode.UNPROCESSABLE_ENTITY) {
     throw new Error(`Username ${repositoryOwner} does not exist.`);
   }
 
