@@ -5,7 +5,6 @@ type fetchCommitActivityDataParams = {
   repositoryName: string;
 };
 
-const ONE_HOUR = 3600; //expressed in seconds
 const FIVE_SECONDS = 5000; //expressed in milliseconds
 
 export const fetchCommitActivityData = async ({
@@ -13,8 +12,7 @@ export const fetchCommitActivityData = async ({
   repositoryName,
 }: fetchCommitActivityDataParams): Promise<CommitActivity[]> => {
   const response = await fetch(
-    `https://api.github.com/repos/${repositoryOwner}/${repositoryName}/stats/commit_activity`,
-    { next: { revalidate: ONE_HOUR } }
+    `https://api.github.com/repos/${repositoryOwner}/${repositoryName}/stats/commit_activity`
   );
 
   if (response.status === 202) {

@@ -2,6 +2,8 @@ import { FC, Suspense } from "react";
 import { CommitActivityGraph, LoadingScreen, RepositoryHeader } from "@/app/components";
 import type { Metadata } from "next";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Commit Activity",
 };

@@ -5,16 +5,11 @@ type fetchRepositoryDataParams = {
   repositoryName: string;
 };
 
-const ONE_HOUR = 3600;
-
 export const fetchRepositoryData = async ({
   repositoryOwner,
   repositoryName,
 }: fetchRepositoryDataParams): Promise<RepositoryData> => {
-  const response = await fetch(
-    `https://api.github.com/repos/${repositoryOwner}/${repositoryName}`,
-    { next: { revalidate: ONE_HOUR } }
-  );
+  const response = await fetch(`https://api.github.com/repos/${repositoryOwner}/${repositoryName}`);
 
   if (!response.ok) {
     throw new Error(`Error fetching repository data: ${response.statusText}`);
