@@ -11,7 +11,7 @@ export default function Error({ error }: { error: Error & { digest?: string } })
   };
 
   const refresh = () => {
-    router.refresh();
+    location.reload();
   };
 
   useEffect(() => {
