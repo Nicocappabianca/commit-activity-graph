@@ -8,7 +8,7 @@ type fetchCommitActivityDataParams = {
 
 const FIVE_SECONDS = 5000; //expressed in milliseconds
 
-export const fetchCommitActivityData = async ({
+const fetchCommitActivityData = async ({
   repositoryOwner,
   repositoryName,
 }: fetchCommitActivityDataParams): Promise<CommitActivity[]> => {
@@ -30,3 +30,5 @@ export const fetchCommitActivityData = async ({
 
   return commitActivity;
 };
+
+export default fetchCommitActivityData;

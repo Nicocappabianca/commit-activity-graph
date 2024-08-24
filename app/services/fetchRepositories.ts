@@ -1,7 +1,7 @@
 import { UserRepositories } from "@/app/types";
 import { HTTPStatusCode } from "@/app/constants";
 
-export const fetchRepositories = async (repositoryOwner: string): Promise<UserRepositories> => {
+const fetchRepositories = async (repositoryOwner: string): Promise<UserRepositories> => {
   const response = await fetch(
     `https://api.github.com/search/repositories?q=user:${repositoryOwner}`
   );
@@ -18,3 +18,5 @@ export const fetchRepositories = async (repositoryOwner: string): Promise<UserRe
 
   return repositories;
 };
+
+export default fetchRepositories;

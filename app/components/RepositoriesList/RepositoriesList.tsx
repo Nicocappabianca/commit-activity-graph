@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { fetchRepositories } from "@/app/lib/fetchRepositories";
+import { fetchRepositories } from "@/app/services";
 import RepositoryItem from "./RepositoryItem";
 
 type RepositoriesListProps = {

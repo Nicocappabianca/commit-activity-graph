@@ -5,7 +5,7 @@ type fetchRepositoryDataParams = {
   repositoryName: string;
 };
 
-export const fetchRepositoryData = async ({
+const fetchRepositoryData = async ({
   repositoryOwner,
   repositoryName,
 }: fetchRepositoryDataParams): Promise<RepositoryData> => {
@@ -19,3 +19,5 @@ export const fetchRepositoryData = async ({
 
   return repositoryData;
 };
+
+export default fetchRepositoryData;

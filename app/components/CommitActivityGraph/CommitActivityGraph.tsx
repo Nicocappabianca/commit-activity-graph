@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { getYearContributionsCount } from "@/app/utils";
-import { fetchCommitActivityData } from "@/app/lib/fetchCommitActivityData";
+import { fetchCommitActivityData } from "@/app/services";
 import CommitActivityGraphHeader from "./CommitActivityGraphHeader";
 import CommitScale from "./CommitScale";
 import CommitActivityGraphBody from "./CommitActivityGraphBody";

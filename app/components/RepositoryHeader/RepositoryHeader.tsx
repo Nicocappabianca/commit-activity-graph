@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { fetchRepositoryData } from "@/app/lib/fetchRepositoryData";
+import { fetchRepositoryData } from "@/app/services";
 import Image from "next/image";
 
 type RepositoryHeaderProps = {
