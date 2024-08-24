@@ -3,17 +3,15 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/app/components";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function Error({ error }: { error: Error & { digest?: string } }) {
   const router = useRouter();
 
   const navigateHome = () => {
     router.push("/");
+  };
+
+  const refresh = () => {
+    router.refresh();
   };
 
   useEffect(() => {
@@ -27,7 +25,7 @@ export default function Error({
       <p className="pt-6 pb-4 text-gray-400 max-w-80 mx-auto">{error.message}</p>
       <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-2">
         <Button onClick={navigateHome}>Go back Home 🏠</Button>
-        <Button onClick={reset}>Try again 🔄</Button>
+        <Button onClick={refresh}>Try again 🔄</Button>
       </div>
     </div>
   );
