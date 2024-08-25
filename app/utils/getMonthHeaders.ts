@@ -2,7 +2,7 @@ import { CommitActivity, MonthHeader } from "@/app/types";
 
 const getMonthHeaders = (commitActivity: CommitActivity[]): MonthHeader[] => {
   const monthHeaders: MonthHeader[] = [];
-  let currentMonth = new Date(commitActivity[commitActivity.length - 1].week * 1000).getMonth();
+  let currentMonth = new Date(commitActivity[0].week * 1000).getMonth();
   let colSpan = 0;
 
   commitActivity.forEach((weekCommits, index) => {
