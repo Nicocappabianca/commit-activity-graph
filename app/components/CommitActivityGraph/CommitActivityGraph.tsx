@@ -22,7 +22,7 @@ const CommitActivityGraph: FC<CommitActivityGraphProps> = async ({
   const totalYearCommits = getYearContributionsCount(commitActivity);
 
   return (
-    <div className="flex flex-col items-center w-full max-w-[90rem]">
+    <div className="flex flex-col items-center w-full max-w-[92rem]">
       <h2 className="mr-auto mb-3 text-gray-200">
         {totalYearCommits} contributions in the last year
       </h2>
