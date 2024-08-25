@@ -15,8 +15,17 @@ type CommitActivityPageProps = {
 const CommitActivityPage: FC<CommitActivityPageProps> = ({ params }) => {
   const { repositoryName, repositoryOwner } = params;
 
+  const loadingMessage = (
+    <div className="pb-6 text-center">
+      <h2 className="text-xl font-semibold pb-3 text-gray-400">
+        Requesting repository activity...
+      </h2>
+      <p className="text-sm text-gray-500">Wait, this might take some time.</p>
+    </div>
+  );
+
   return (
-    <Suspense fallback={<LoadingScreen message="Loading repository activity..." />}>
+    <Suspense fallback={<LoadingScreen message={loadingMessage} />}>
       <main className="flex min-h-screen flex-col items-center justify-center px-4 space-y-12">
         <RepositoryHeader repositoryName={repositoryName} repositoryOwner={repositoryOwner} />
         <CommitActivityGraph repositoryName={repositoryName} repositoryOwner={repositoryOwner} />
