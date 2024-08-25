@@ -16,11 +16,13 @@ const CommitActivityPage: FC<CommitActivityPageProps> = ({ params }) => {
   const { repositoryName, repositoryOwner } = params;
 
   const loadingMessage = (
-    <div className="pb-6 text-center">
+    <div className="pb-6 text-center px-2">
       <h2 className="text-xl font-semibold pb-3 text-gray-400">
         Requesting repository activity...
       </h2>
-      <p className="text-sm text-gray-500">Wait, this might take some time.</p>
+      <p className="text-sm text-gray-500 max-w-full text-center">
+        Wait, this might take some time.
+      </p>
     </div>
   );
 

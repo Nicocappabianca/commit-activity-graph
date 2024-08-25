@@ -6,7 +6,8 @@ type fetchCommitActivityDataParams = {
   repositoryName: string;
 };
 
-const RETRY_TIME = 9000; //expressed in milliseconds
+export const maxDuration = 30; //expressed in seconds
+const RETRY_TIME = 15000; //expressed in milliseconds
 
 const fetchCommitActivityData = async ({
   repositoryOwner,
