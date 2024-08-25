@@ -6,7 +6,7 @@ type fetchCommitActivityDataParams = {
   repositoryName: string;
 };
 
-const TEN_SECONDS = 10000; //expressed in milliseconds
+const RETRY_TIME = 9000; //expressed in milliseconds
 
 const fetchCommitActivityData = async ({
   repositoryOwner,
@@ -18,7 +18,7 @@ const fetchCommitActivityData = async ({
 
   if (response.status === HTTPStatusCode.ACCEPTED) {
     console.warn("Stats are being generated, retrying...");
-    await new Promise((resolve) => setTimeout(resolve, TEN_SECONDS));
+    await new Promise((resolve) => setTimeout(resolve, RETRY_TIME));
     return fetchCommitActivityData({ repositoryOwner, repositoryName });
   }
 
