@@ -7,5 +7,5 @@ export default function Error({ error }: { error: Error & { digest?: string } })
     console.error(error.message);
   }, [error]);
 
-  return <ErrorScreen message={error.message} />;
+  return <ErrorScreen />;
 }
