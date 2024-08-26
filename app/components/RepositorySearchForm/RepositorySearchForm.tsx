@@ -21,7 +21,7 @@ const RepositorySearchForm: FC = () => {
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="Please enter GitHub username..."
+        placeholder="Please enter GitHub repo owner..."
         className="border border-gray-200 rounded-lg px-4 py-2 mb-4 text-gray-200 bg-transparent focus:outline-none w-80 max-w-full"
         required
       />
