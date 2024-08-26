@@ -35,7 +35,12 @@ const CommitActivityGraph: FC<CommitActivityGraphProps> = ({ repositoryName, rep
   }
 
   if (!commitActivity?.length || error) {
-    return <ErrorScreen />;
+    return (
+      <ErrorScreen
+        message={`${repositoryOwner}/${repositoryName} commit activity not found.`}
+        canTryAgain
+      />
+    );
   }
 
   const totalYearCommits = getYearContributionsCount(commitActivity);

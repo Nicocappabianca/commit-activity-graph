@@ -4,8 +4,8 @@ import { ErrorScreen } from "@/app/components";
 
 export default function Error({ error }: { error: Error & { digest?: string } }) {
   useEffect(() => {
-    console.error(error?.message || "Error");
+    console.error(error.message);
   }, [error]);
 
-  return <ErrorScreen />;
+  return <ErrorScreen message={error.message} />;
 }
