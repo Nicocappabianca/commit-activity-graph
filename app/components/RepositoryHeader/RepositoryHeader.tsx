@@ -30,6 +30,7 @@ const RepositoryHeader: FC<RepositoryHeaderProps> = async ({ repositoryName, rep
           <a
             href={repositoryData.html_url}
             target="_blank"
+            rel="noopener"
             className="text-blue-700 mx-2 font-semibold hover:text-blue-600"
           >
             {repositoryData.full_name}
