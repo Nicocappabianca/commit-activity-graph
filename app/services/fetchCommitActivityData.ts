@@ -7,8 +7,8 @@ type fetchCommitActivityDataParams = {
   retriesCount?: number;
 };
 
-export const maxDuration = 30; //expressed in seconds
-const RETRY_TIME = 7000; //expressed in milliseconds
+export const maxDuration = 60; //expressed in seconds
+const RETRY_TIME = 15000; //expressed in milliseconds
 const MAX_RETRIES = 2;
 
 const fetchCommitActivityData = async ({
