@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { Button } from "@/app/components";
 import { useRouter } from "next/navigation";
 

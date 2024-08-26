@@ -1,5 +1,5 @@
 import { FC, Suspense } from "react";
-import { CommitActivityGraph, RepositoryHeader } from "@/app/components";
+import { CommitActivityGraph } from "@/app/components";
 import type { Metadata } from "next";
 
 export const revalidate = 0;

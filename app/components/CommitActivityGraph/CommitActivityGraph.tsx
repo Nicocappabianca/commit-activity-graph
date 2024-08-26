@@ -34,7 +34,7 @@ const CommitActivityGraph: FC<CommitActivityGraphProps> = ({ repositoryName, rep
     return <LoadingScreen message={loadingMessage} />;
   }
 
-  if (!commitActivity || error) {
+  if (!commitActivity?.length || error) {
     return <ErrorScreen />;
   }
 
