@@ -7,3 +7,4 @@ export { default as Tooltip } from "./Tooltip/Tooltip";
 export { default as Button } from "./Button/Button";
 export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
 export { default as LoadingScreen } from "./LoadingScreen/LoadingScreen";
+export { default as ErrorScreen } from "./ErrorScreen/ErrorScreen";

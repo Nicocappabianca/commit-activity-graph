@@ -1,6 +1,8 @@
+"use client";
 import { FC } from "react";
 import { getYearContributionsCount } from "@/app/utils";
-import { fetchCommitActivityData } from "@/app/services";
+import { useCommitActivity } from "@/app/hooks";
+import { ErrorScreen, LoadingScreen } from "@/app/components";
 import CommitActivityGraphHeader from "./CommitActivityGraphHeader";
 import CommitScale from "./CommitScale";
 import CommitActivityGraphBody from "./CommitActivityGraphBody";
@@ -10,14 +12,31 @@ type CommitActivityGraphProps = {
   repositoryName: string;
 };
 
-const CommitActivityGraph: FC<CommitActivityGraphProps> = async ({
-  repositoryName,
-  repositoryOwner,
-}) => {
-  const commitActivity = await fetchCommitActivityData({
-    repositoryName,
-    repositoryOwner,
-  });
+const CommitActivityGraph: FC<CommitActivityGraphProps> = ({ repositoryName, repositoryOwner }) => {
+  const {
+    isLoading,
+    error,
+    data: commitActivity,
+  } = useCommitActivity({ repositoryName, repositoryOwner });
+
+  if (isLoading) {
+    const loadingMessage = (
+      <div className="pb-6 text-center px-2">
+        <h2 className="text-xl font-semibold pb-3 text-gray-400">
+          Requesting repository activity...
+        </h2>
+        <p className="text-sm text-gray-500 max-w-full text-center">
+          Wait, this might take some time.
+        </p>
+      </div>
+    );
+
+    return <LoadingScreen message={loadingMessage} />;
+  }
+
+  if (!commitActivity || error) {
+    return <ErrorScreen />;
+  }
 
   const totalYearCommits = getYearContributionsCount(commitActivity);
 
