@@ -18,7 +18,6 @@ const CommitActivityPage: FC<CommitActivityPageProps> = ({ params }) => {
   return (
     <Suspense>
       <main className="flex min-h-screen flex-col items-center justify-center px-4 space-y-12">
-        <RepositoryHeader repositoryName={repositoryName} repositoryOwner={repositoryOwner} />
         <CommitActivityGraph repositoryName={repositoryName} repositoryOwner={repositoryOwner} />
       </main>
     </Suspense>

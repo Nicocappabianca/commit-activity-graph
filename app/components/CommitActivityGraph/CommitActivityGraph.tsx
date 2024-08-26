@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { getYearContributionsCount } from "@/app/utils";
 import { useCommitActivity } from "@/app/hooks";
-import { ErrorScreen, LoadingScreen } from "@/app/components";
+import { ErrorScreen, LoadingScreen, RepositoryHeader } from "@/app/components";
 import CommitActivityGraphHeader from "./CommitActivityGraphHeader";
 import CommitScale from "./CommitScale";
 import CommitActivityGraphBody from "./CommitActivityGraphBody";
@@ -41,20 +41,23 @@ const CommitActivityGraph: FC<CommitActivityGraphProps> = ({ repositoryName, rep
   const totalYearCommits = getYearContributionsCount(commitActivity);
 
   return (
-    <div className="flex flex-col items-center w-full max-w-[92rem]">
-      <h2 className="mr-auto mb-3 text-gray-200">
-        {totalYearCommits} contributions in the last year
-      </h2>
-      <div className="max-w-full overflow-y-hidden overflow-x-auto">
-        <table className="table-auto border-separate w-max overflow-hidden relative pt-6 pb-2">
-          <CommitActivityGraphHeader commitActivity={commitActivity} />
-          <CommitActivityGraphBody commitActivity={commitActivity} />
-        </table>
+    <>
+      <RepositoryHeader repositoryName={repositoryName} repositoryOwner={repositoryOwner} />
+      <div className="flex flex-col items-center w-full max-w-[92rem]">
+        <h2 className="mr-auto mb-3 text-gray-200">
+          {totalYearCommits} contributions in the last year
+        </h2>
+        <div className="max-w-full overflow-y-hidden overflow-x-auto">
+          <table className="table-auto border-separate w-max overflow-hidden relative pt-6 pb-2">
+            <CommitActivityGraphHeader commitActivity={commitActivity} />
+            <CommitActivityGraphBody commitActivity={commitActivity} />
+          </table>
+        </div>
+        <div className="ml-auto pt-3">
+          <CommitScale />
+        </div>
       </div>
-      <div className="ml-auto pt-3">
-        <CommitScale />
-      </div>
-    </div>
+    </>
   );
 };
 
