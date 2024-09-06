@@ -54,7 +54,7 @@ The tools behind the project
 - **TypeScript**: Chosen for its static typing, which helps catch errors early and improves code maintainability.
 - **React**: Selected for its component-based architecture, making the UI modular and reusable.
 - **Tailwind CSS**: Used for its utility-first approach, allowing for rapid and responsive design development.
-- **Next.js**: Selected for its performance benefits and server-side rendering. ⚠️ While it's more than what this project requires, I included since it's part of the Concourse stack.
+- **Next.js**: Selected for its performance benefits, server-side rendering and routing capabilities.
 
 <br>
 Thank you for taking the time to explore this project. If you have any questions or feedback, feel free to reach out.
